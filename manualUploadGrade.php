@@ -1,4 +1,7 @@
 <?php
+  include 'connect.php';
+?>
+<?php
 session_start();
 $ID = $_SESSION['ID'];
 if (isset($_SESSION['user_type'])) {
@@ -11,79 +14,80 @@ if (isset($_SESSION['user_type'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	 <!-- Required meta tags -->
-	 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <title>Grade Upload CSV file</title>
-    <!--Google Font-->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!--Google Font-->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="spms.css">
+	<title>Student Grade Upload Manual</title>
+    <style>
 
-	<style>
+body{
+    background-image:url('background.png');
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:50% 50%;
+    background-position:center;
+    background-color:#1c96ca;
+}
+    form {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 
-        ::placeholder{
-          color:white;
-        }
+}
 
-        ::-ms-input-placeholder{
-          color:white;
-        }
+label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+  color:white;
+}
 
-        :-ms-input-placeholder{
-          color:white;
-        }
+input[type="text"] {
+  display: inline-block;
+  width: 80px;
+  margin-bottom: 10px;
+  background-color:#4a7678;
+  border: 1px solid;
+  border-radius:5px;
+    font-size: 14px;
+    color:white;
+    font-weight: bold; 
+  
+}
+input[type="button"] {
+  background: #40179f;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+  height: 36px;
+  width: 100px;
+}
 
-    </style>
+input[type="button"]:hover {
+  background: linear-gradient(90deg, #34166e, #40179f);
+}
 
-<style>
-		table {
-			border-collapse: collapse;
-			width: 20%;
-		}
 
-		th, td {
-			text-align: left;
-			padding: 8px;
-			border-bottom: 1px solid #164b99;
-		}
 
-		th {
-			background-color: #164b99;
-			color: white;
-		}
-
-		input[type="submit"] {
-			background:#40179f; 
-    border-radius:10px; 
-    border:none; 
-    outline:none; color:#fff; 
-    font-size:14px;
-    letter-spacing:2px; 
-    text-transform:uppercase; 
-    cursor:pointer; 
-    font-weight:bold; 
-    margin-left:5px; 
-    height: 36px; 
-    width: 100px;
-		}
-		input[type="submit"]:hover{
-    background:linear-gradient(90deg,#34166e,#40179f);
     
-   }
-	</style>
-
-
+</style>
+	
 </head>
+<body>
 
 
-<body>
-<body>
-    
-	<div class="menu-bar">
+ 
+<div class="menu-bar">
   
   <ul> 
 	  <li><a  href="dashboard.php">Dashboard</a></li>
@@ -123,13 +127,14 @@ if (isset($_SESSION['user_type'])) {
   
 		  <div class="menu1">
 			  <ul>
-			  <li><a href="addExam.php">Add Exam </a> </li>
+				  <li><a href="addExam.php">Add Exam </a> </li>
 				  <li><a href="viewExam.php">View Exam </a> </li>
 				  <li><a href="viewStudentAnswerScript.php"> Evaluate Exam Script</a> </li>
 				  <li><a href="createCourseOutlinePage1.php"> Create Course Outline </a> </li>
 				  <li><a href="viewCourseOutline.php"> View Course Outline </a> </li>
                   <li><a href="Uploadgrade.php"> Upload Grade </a> </li>
                   <li><a href="manualUploadGrade.php"> Manual Upload Grade </a> </li>
+                  
 			  </ul>
 			 </div>
 	  
@@ -183,127 +188,94 @@ if (isset($_SESSION['user_type'])) {
 
 
 
-<!-- 
-	<div class="row1">
-	<form method="post" action="<?php/* echo htmlspecialchars($_SERVER["PHP_SELF"]);  */?>">
 
-		<input type="text" placeholder="Course ID" id="courseID" name="courseID"><br>
-		<input type="text" placeholder="Section ID" id="sectionID" name="sectionID"><br>
-		<input style="margin-top:20px; width:180px; margin-left:670px;" type="submit" class="button" name="submit" value="View Students">
-	</form>
-	</div>
-_-->
 
-	<div class="row1" style=" margin-left:670px;" >
-	<p style="font-weight: bold; color: white;">Upload CSV File</p>
-		<form method="POST" enctype="multipart/form-data">
-			<label for="file"style="font-weight: bold; color: white;">Select file:</label>
-			<input type="file" name="file" id="file" style="background-color: #4a7678; border: none; font-size: 16px; color: #333;"><br><br>
-			<input type="submit" name="submitt" value="Upload">
-		</form>
-	</div>
 
-	<?php
 
-	include 'connect.php';
 
-	?>
-	<?php
-	/*
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		// database connection details
-		include 'connect.php';
 
-		// retrieve student information from registration_t table
-		$courseID = $_POST['courseID'];
-		$sectionID = $_POST['sectionID'];
-		$sql = "SELECT * FROM registration_t WHERE courseID='$courseID' AND sectionID='$sectionID'";
-		$result = mysqli_query($con, $sql);
 
-		// display student information in a table
-		if (mysqli_num_rows($result) > 0) {
-			$tableHTML = "<table><tr><th>Student ID</th><th>Grade</th></tr>";
-			while($row = mysqli_fetch_assoc($result)) {
-				$registrationID = $row['registrationID'];
-				$studentID = $row['studentID'];
-				$tableHTML .= "<tr><td>".$studentID."</td><td><input type='number' step='0.01' name='grade[$studentID]' required></td></tr>";
-			}
-			$tableHTML .= "</table>";
-			echo "<form method='post' action=''>";
-			echo $tableHTML;
-			echo "<input type='hidden' name='courseID' value='$courseID'>";
-			echo "<input type='hidden' name='sectionID' value='$sectionID'>";
-			echo "<input type='submit' name='submit_grades' value='Submit'>";
-			echo "</form>";
-		} else {
-			echo "0 results";
-		}
 
-		// close connection
-		mysqli_close($con);
-	}
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_grades'])) {
-		// database connection details
-		include 'connect.php';
 
-		// retrieve student grades and insert into student_course_performance table
-		$courseID = $_POST['courseID'];
-		$sectionID = $_POST['sectionID'];
-		foreach($_POST['grade'] as $studentID => $grade) {
-			$sql = "SELECT registrationID FROM registration_t WHERE courseID='$courseID' AND sectionID='$sectionID' AND studentID='$studentID'";
-			$result = mysqli_query($con, $sql);
-			if (mysqli_num_rows($result) > 0) {
-				$row = mysqli_fetch_assoc($result);
-				$registrationID = $row['registrationID'];
-				$sql = "UPDATE student_course_performance_t SET gradePoint = '$grade' WHERE registrationID = '$registrationID'";
-				mysqli_query($con, $sql);
-			}
-		}
 
-		// close connection
-		mysqli_close($con);
-		echo "Grades have been successfully submitted.";
-	}
-	*/
-	?>
+<form method="post">
+  <label for="num_students">How many students' grade do you want to upload?</label>
+  <input type="text" id="num_students" name="num_students">
+  <br>
+  <input  type="button" value="Submit" onclick="createForm()">
+</form>
 
+<script>
+  function createForm() {
+    let numStudents = document.getElementById('num_students').value;
+
+    let form = document.createElement('form');
+    form.method = 'POST';
+
+    for (let i = 1; i <= numStudents; i++) {
+      let studentDiv = document.createElement('div');
+      studentDiv.innerHTML = '<h3>Student ' + i + '</h3>' +
+        '<label for="student_id_' + i + '">Student ID:</label>' +
+        '<input type="text" id="student_id_' + i + '" name="student_id_' + i + '">' +
+        '<label for="edu_semester_' + i + '">Education Semester:</label>' +
+        '<input type="text" id="edu_semester_' + i + '" name="edu_semester_' + i + '">' +
+        '<label for="edu_year_' + i + '">Education Year:</label>' +
+        '<input type="text" id="edu_year_' + i + '" name="edu_year_' + i + '">' +
+        '<label for="enrolled_course_' + i + '">Enrolled Course:</label>' +
+        '<input type="text" id="enrolled_course_' + i + '" name="enrolled_course_' + i + '">' +
+        '<label for="enrolled_section_' + i + '">Enrolled Section:</label>' +
+        '<input type="text" id="enrolled_section_' + i + '" name="enrolled_section_' + i + '">' +
+        '<label for="grade_point_' + i + '">Grade Point:</label>' +
+        '<input type="text" id="grade_point_' + i + '" name="grade_point_' + i + '"><br>';
+
+      form.appendChild(studentDiv);
+    }
+
+    let submitButton = document.createElement('input');
+    submitButton.type = 'submit';
+    submitButton.name = 'submit2';
+    submitButton.value = 'Upload';
+    form.appendChild(submitButton);
+
+    document.body.appendChild(form);
+  }
+</script>
 
 <?php
-		if(isset($_POST["submitt"])) {
-			$filename = $_FILES["file"]["tmp_name"];
-			if($_FILES["file"]["size"] > 0) {
-				
-				// Read CSV file
-				$file = fopen($filename, "r");
-				fgetcsv($file); // Skip header row
-				$sections = array();
-				$registrations = array();
-				$questions = array();
-				$grade_marks = array();
-				while(($data = fgetcsv($file, 1000, ",")) !== false) {
-					$student_id = $data[0];
-					$edu_semester = $data[2];
-					$edu_year = $data[1];
-					$enrolled_course = $data[3];
-					$enrolled_section = $data[4];
 
-					$grade_mapping = [
-						"A"  => 4.0,
-						"A-" => 3.7,
-						"B+" => 3.3,
-						"B"  => 3.0,
-						"B-" => 2.7,
-						"C+" => 2.3,
-						"C"  => 2.0,
-						"C-" => 1.7,
-						"D+" => 1.3,
-						"D"  => 1.0,
-						"F"  => 0.0,
-					];
-					
-					$grade_letter = $data[5];
-					$grade_point = $grade_mapping[$grade_letter];
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['submit2'])) {
+      $num_students = 3;
+      $students = array();
+      $sections = array();
+        $registrations = array();
+        $questions = array();
+        $grade_marks = array();
+    // loop through the number of students entered and store the data in an array
+    for ($i = 1; $i <= $num_students; $i++) {
+      $student_id = $_POST['student_id_' . $i];
+      $edu_semester = $_POST['edu_semester_' . $i];
+      $edu_year = $_POST['edu_year_' . $i];
+      $enrolled_course = $_POST['enrolled_course_' . $i];
+      $enrolled_section = $_POST['enrolled_section_' . $i];
+      $grade_letter = $_POST['grade_point_' . $i];
+	  $grade_mapping = [
+		"A"  => 4.0,
+		"A-" => 3.7,
+		"B+" => 3.3,
+		"B"  => 3.0,
+		"B-" => 2.7,
+		"C+" => 2.3,
+		"C"  => 2.0,
+		"C-" => 1.7,
+		"D+" => 1.3,
+		"D"  => 1.0,
+		"F"  => 0.0,
+	];
+	
+	
+	$grade_point = $grade_mapping[$grade_letter];
 					
 					// Insert data into section_t table
 					if(!array_key_exists($enrolled_section, $sections)) {
@@ -437,14 +409,15 @@ _-->
 					
 
 
+
 				}
-				fclose($file);
 				mysqli_close($con);
 				echo "Data uploaded successfully!";
 			} else {
 				echo "Invalid file!";
 			}
-		}
+        }
+		
 	?>
 
 

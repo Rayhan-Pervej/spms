@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2022 at 03:03 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Apr 26, 2023 at 11:26 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,7 +62,53 @@ INSERT INTO `answer_t` (`answerID`, `answerDetails`, `answerNum`, `markObtained`
 (117, 'kkj', 3, 7, 7, 0, 14),
 (118, 'h k', 4, 7, 7, 0, 14),
 (119, 'brbnfn', 1, 6, 25, 0, 16),
-(120, 'rnrnr', 2, 6, 25, 0, 16);
+(120, 'rnrnr', 2, 6, 25, 0, 16),
+(146, '', 1, 75, 115, 0, 17),
+(147, '', 1, 75, 115, 0, 17),
+(148, '', 1, 75, 115, 0, 17),
+(149, '', 1, 85, 116, 0, 17),
+(150, '', 1, 85, 116, 0, 17),
+(151, '', 1, 85, 116, 0, 17),
+(152, '', 1, 80, 117, 0, 17),
+(153, '', 1, 80, 117, 0, 17),
+(154, '', 1, 80, 117, 0, 17),
+(155, '', 1, 90, 118, 0, 17),
+(156, '', 1, 90, 118, 0, 17),
+(157, '', 1, 90, 118, 0, 17),
+(159, '', 1, 75, 121, 0, 1),
+(160, '', 1, 75, 124, 0, 5),
+(163, '', 1, 70, 127, 0, 5),
+(164, '', 1, 70, 128, 0, 5),
+(165, '', 1, 70, 129, 0, 5),
+(166, '', 1, 80, 130, 0, 5),
+(167, '', 1, 60, 131, 0, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `back_log_t`
+--
+
+CREATE TABLE `back_log_t` (
+  `bLID` int(11) NOT NULL,
+  `studentID` int(7) NOT NULL,
+  `year` year(4) DEFAULT NULL,
+  `semester` varchar(6) DEFAULT NULL,
+  `courseID` varchar(6) DEFAULT NULL,
+  `sectionNum` int(5) DEFAULT NULL,
+  `gradePoint` float DEFAULT NULL,
+  `employeeID` int(4) NOT NULL,
+  `timeStamp` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `back_log_t`
+--
+
+INSERT INTO `back_log_t` (`bLID`, `studentID`, `year`, `semester`, `courseID`, `sectionNum`, `gradePoint`, `employeeID`, `timeStamp`) VALUES
+(3, 2022082, 2023, 'Spring', 'ENG101', 5, 2.7, 2259, '2023-04-26 05:18:38'),
+(4, 2022083, 2023, 'Spring', 'ENG101', 5, 3.3, 2259, '2023-04-26 17:01:03'),
+(5, 2022084, 2023, 'Spring', 'ENG101', 5, 2, 2259, '2023-04-26 17:16:28');
 
 -- --------------------------------------------------------
 
@@ -93,7 +139,10 @@ INSERT INTO `clo_matrix_t` (`clo_MatID`, `cloNum`, `coDescription`, `ploAssessed
 (5, 3, 'Ability to analyze the ERD, Process diagram and normalization concept.', 'PLO-d', 3, 4, 0, 6, 0, 6),
 (6, 1, 'sdfgh', 'plo-a', 3, 11, 2, 0, 5, 0),
 (7, 1, 'Understand the database applications starting from conceptual design using data models diagram (ERD), Process Model diagram (BPMN)', 'PLO-b', 3, 12, 0, 4, 0, 0),
-(8, 1, 'Understand the database applications starting from conceptual design using data models diagram (ERD), Process Model diagram (BPMN)', 'PLO-b', 3, 13, 0, 4, 0, 0);
+(8, 1, 'Understand the database applications starting from conceptual design using data models diagram (ERD), Process Model diagram (BPMN)', 'PLO-b', 3, 13, 0, 4, 0, 0),
+(9, 0, 'memorise the history', 'PLO-b', 2, 14, 0, 5, 3, 4),
+(10, 0, 'understanding the process', 'PLO-a', 1, 14, 3, 0, 6, 8),
+(11, 0, 'making IoT thing', 'PLO-c', 3, 14, 1, 2, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -123,7 +172,8 @@ INSERT INTO `course_outline_t` (`courseOutlineID`, `sectionID`, `semester`, `cou
 (4, 10, 'spring, 2021', 'Conventional and database approaches. Basic concepts of DBMS. Hierarchical, network and relational data\r\nmodels. \r\nEntity-relationship modeling. Relational database designing: decomposition and normalization;\r\nfunctional dependencies. \r\nRelational algebra and calculus. Structured query language (SQL). \r\nQuery optimization. \r\nDatabase programming with SQL and PL/SQL. \r\nDatabase security and administration. Distributed databases.\r\nObject-oriented data modeling.\r\nSpecific database systems: oracle, MS SQL server, access.', 'In this course, students will get an overview of the following:\r\n\r\n1. Introduce the concept of database and its usages.\r\n\r\n2. Introduce the life cycle of a systems development project.\r\n\r\n3. Introduction to ER Diagram and database model designing.\r\n\r\n4. Introduce the ERD and Relation mapping.\r\n\r\n5. Understanding the Normalization Technique to optimize the database model.\r\n\r\n6. Introduction to SQL and Advanced SQL.\r\n\r\n7. Introduction to Physical system design: Input forms, Output reports and Architecture.\r\n\r\n8. Basic concepts of database administration.', 'Introduction: Concept of Database, DBMS:\r\n1. Students will be able to know each other\r\n2. Students will learn about the course policy\r\n3. Students will be able to plan for the exams\r\n4. Student will learn basic concept of Database.\r\n5. Students will learn about the reason of using database.\r\n6. Students will learn about different categories of applications that use databases.\r\nIntroduction: Database Development process, Database architecture; Database languages and Interfaces:\r\n1. Students will learn about the life cycle of a systems development project.\r\n2. Students will learn about the roles of individuals who design, implement, use, and administer\r\nDatabases.\r\n3. Students will learn about the differences among external, conceptual, and internal schema.\r\nAnalysis: Rich Picture:\r\n1. Introduction to real-time problem.\r\n2. Introduction to understand a real-time issue and draw that using Rich Picture.\r\nAnalysis: Six Elements Analysis:\r\n1. Understand the concept of Six elements Analysis.\r\n2. Perform six elements analysis to map the existing system.\r\nAnalysis: Process Diagram using BPMN 2.0:\r\n1. Identification of details of the processes involved in the system.\r\n2. Introduction to the business process diagram\r\n3. Introduction to BPMN 2.0.\r\n4. Perform process drawing using BMPN 2.0\r\nAnalysis: Process Diagram and Improvement Process:\r\n1. Students will be introduced to advanced features of BPMN 2.0.\r\n2. Students will be introduced to BPR and KPI to find the issues and perform analysis\r\nEntity Relationship Diagram Model:\r\n1. Students will learn about entities, relationships, and attributes.\r\n2. Students will be able to learn about degree of relationship.\r\n3. Students will be able to model E-R diagram considering different types of attributes, entities,\r\nrelationship, and cardinality constraints.\r\n4. Students will be able to differentiate different relationship types.\r\n5. Student will be able to identify the reason of different types of attributes.\r\n6. Students will be able to realize the need of relationship constrains.\r\nDesign: Enhanced ERD Model:\r\n1. Student will learn about subtype super-type relation.\r\n2. Student will learn completeness and disjoint type relations.\r\nDesign: ERD to Relations:\r\n1. Students will learn to convert the entity to relations.\r\n2. Students will learn to map attribute in the relations.\r\n3. Students will be able to design the relationship in terms of relations.\r\nDesign: Normalization 01:\r\n1. Students will be able to list five properties of relations.\r\n2. Students will be able to state two essential properties of a candidate key.\r\n3. Student will be introduced with the concept of normalization: first normal form, second normal\r\nform, and third normal form.\r\n4. Students will learn briefly about four problems that may arise when merging relations.\r\nDesign: Normalization 02, Data Dictionary:\r\n1. Students will be able to realize the need of normalization.\r\n2. Students will be able to perform normalization on any case study.\r\n3. Students will learn about Boyce-Codd normal form.\r\n4. Students will learn the physical database design process, its objectives, and its deliverables.\r\n5. Students will learn about storage formats for attributes from a logical data model.\r\n6. Students will learn how to select an appropriate file organization by balancing various important\r\ndesign factors.\r\n7. Students will be able to translate a relational data model into efficient database structures,\r\nincluding knowing when and how to de-normalize the logical data model.\r\nRelational Algebra:\r\n1. Students will learn about the formal notations.\r\n2. Students will learn how to add constraints to the set union, set intersections. Set difference and\r\nCartesian products.\r\n3. Students will learn how to implement and use them in database.\r\nSQL: DDL, DML, DCL:\r\n1. Students will learn to interpret the history and role of SQL in database development.\r\n2. Students will know how to define and use the data types and constrains in the database using DML.\r\nSQL: Retrieve Information:\r\n1. Students will learn how to fetch the data from the database using basic SQL command.\r\n2. Students will learn how to retrieve and manipulate that information from the database using SQL.\r\n3. Students will learn how to retrieve and manipulate that information from the database using SQL.\r\nAdvance SQL:\r\n1. Students will learn how to use union, join etc. using SQL.\r\n2. Students will be able to establish referential integrity using SQL.\r\n3. Students will learn how to use union, join etc. using SQL.\r\n4. Students will be able to establish referential integrity using SQL.\r\n5. Students will learn how to write sub-queries using SQL query.\r\n6. Students will learn how to establish referential integrity using SQL.\r\n7. Students will practice how to write sub-queries using SQL query.\r\n8. Students will practice how to establish referential integrity using SQL.\r\nInput Form and Output Reports Database Architecture, Database Administrations:\r\n1. Students will be able to explain the three components of client/server systems: data presentation\r\nservices, processing services, and storage services.\r\n2. Students will be able to distinguish between two-tier and three-tier architectures.\r\n3. Students will be able to describe the key components of a web application and the information flow\r\nbetween the various components.\r\n4. Students will learn why organizations needs data administration for.\r\n5. Students will be able to describe the three levels of data warehouse architecture from database\r\nadministrator point of view.\r\n6. Students will be able to develop the requirement for a data bank.', 'The course will be based mostly on the following books [some other books and journals may be\r\nreferred time to time]:\r\n1. Modern Database Management by Jeffrey A. Hoffer, Mary B. Prescott, Fred R. Mcfadden\r\n2. Database Management Systems, by Raghu Ramakrishnan and Johannes Gehrke\r\n3. Fundamentals of Database Systems, By RamezElmasri, Shamkant B. Navathe\r\n4. Microsoft MSDN, W3 School\r\n5. An Introduction to Database System by C. J. Date', 1, 'Introduction to programming', '', 3),
 (11, 16, 'summer,2021', 'This course is prepared for the students (Major in MIS) with an introduction to trending technology, for instance,\r\nInternet of Things (IoT), Artificial Intelligence (AI), BlockChain, Fintech, Big Data and Business Intelligence (BI)\r\nas well as business problem solving orientation through various techniques. These usage in an increasingly\r\ncompetitive business world is really required. As a future manager/leader, one needs to be equipped with this\r\ntrending issues to make decisions concerning the planning, development and implementation of information\r\ntechnology resources to increase organizational effectiveness and create a strategic advantage.', 'This course is prepared for the students (Major in MIS) with an introduction to trending technology, for instance,\r\nInternet of Things (IoT), Artificial Intelligence (AI), BlockChain, Fintech, Big Data and Business Intelligence (BI)\r\nas well as business problem solving orientation through various techniques. These usage in an increasingly\r\ncompetitive business world is really required. As a future manager/leader, one needs to be equipped with this\r\ntrending issues to make decisions concerning the planning, development and implementation of information\r\ntechnology resources to increase organizational effectiveness and create a strategic advantage.', 'Upon completion of BBA in Management Information Systems (MIS) program, the individual should be able to:\r\n\r\nPLO1: Explain theories, knowledge, technologies and concepts related to Business and Management.\r\nPLO2: Apply relevant & sustainable computer applications, tools, techniques and skills required for decision\r\nmaking in different functions of management.\r\nPLO3: Analyze plans and requirements for implementing computer-based information systems and use\r\ntechnologies to solve business problems.\r\nPLO4: Apply interpersonal skills & communicate skillfully to work effectively in groups or individually to\r\nperform required tasks in a work environment.\r\nPLO5: Identify ethical considerations in relation to Business and Management.\r\nPLO6: Develop entrepreneurial and employability skills that can be applied in a work environment.\r\nPL07: Recognize the need for lifelong learning to acquire & to be skillful on emerging technologies as it evolves.\r\n\r\nCOURSE LEARNING OUTCOME (CLO):\r\n\r\nUpon completion of this course, individual should be able to: -\r\nCLO1: Identify and explain theories, knowledge, technologies and concepts related to IoT, Big Data, Machine\r\nlearning, Fin-tech etc.\r\nCLO2: Assess if the organizations are well prepared for implementing IoT, Block-Chain and integrate system into\r\na single hub.\r\nCLO3: Execute model-based simulation program to solve business problems/generate best possible solutions to\r\nthe business problem.\r\nCLO4: Identify ethical considerations and evaluate if data can be used for decision making or publicized to all\r\nstakeholders.\r\nCLO5: Measure the pre-performance analysis of given scenario from technical aspects.', 'Articles online.', 1, 'Computers in Business', '', 3),
 (12, 13, 'spring,2021', 'aaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbb', 'bla bla bla', 'nai', 3, 'English Learning Skills', '', 3),
-(13, 15, 'autumn,2021', 'Conventional and database approaches. Basic concepts of DBMS. Hierarchical, network and relational data models. Entity-relationship modeling. Relational database designing: decomposition and normalization; functional dependencies. Relational algebra and calculus. Structured query language (SQL). Query optimization. Database programming with SQL and PL/SQL. Database security and administration. Distributed databases. Object-oriented data modeling. Specific database systems: oracle, MS SQL server, access.\r\n', 'In this course, students will get an overview of the following:\r\n\r\nIntroduce the concept of database and its usages.\r\nIntroduce the life cycle of a systems development project.\r\nIntroduction to ER Diagram and database model designing. \r\nIntroduce the ERD and Relation mapping.\r\nUnderstanding the Normalization Technique to optimize the database model.\r\nIntroduction to SQL and Advanced SQL.\r\nIntroduction to Physical system design: Input forms, Output reports and Architecture. \r\nBasic concepts of database administration.\r\n\r\n', 'blah', 'gbrbr', 1, 'Introduction to programming', '', 3);
+(13, 15, 'autumn,2021', 'Conventional and database approaches. Basic concepts of DBMS. Hierarchical, network and relational data models. Entity-relationship modeling. Relational database designing: decomposition and normalization; functional dependencies. Relational algebra and calculus. Structured query language (SQL). Query optimization. Database programming with SQL and PL/SQL. Database security and administration. Distributed databases. Object-oriented data modeling. Specific database systems: oracle, MS SQL server, access.\r\n', 'In this course, students will get an overview of the following:\r\n\r\nIntroduce the concept of database and its usages.\r\nIntroduce the life cycle of a systems development project.\r\nIntroduction to ER Diagram and database model designing. \r\nIntroduce the ERD and Relation mapping.\r\nUnderstanding the Normalization Technique to optimize the database model.\r\nIntroduction to SQL and Advanced SQL.\r\nIntroduction to Physical system design: Input forms, Output reports and Architecture. \r\nBasic concepts of database administration.\r\n\r\n', 'blah', 'gbrbr', 1, 'Introduction to programming', '', 3),
+(14, 2, 'spring, 2021', 'This course is all about Microprocessor. How it invent, used and utilization. How a microprocessor works in. How its made of. Along with history this course give students a brief discussion.', 'Students will learn how first microprocessor made off. How 8086 works. How to build a microprocessor. How to build something using IOT and microprocessor. ', '1. Introduction\n2. History\n4. Intel 8086\n5. Intel 8086 parts\n6. Intel 8086 design', 'Rayhan pervej report book', 2, 'Microprocessor', '', 3);
 
 -- --------------------------------------------------------
 
@@ -146,6 +196,7 @@ CREATE TABLE `course_t` (
 
 INSERT INTO `course_t` (`courseID`, `courseName`, `numOfCredits`, `courseType`, `programID`, `preReqID`) VALUES
 ('CSC101', 'Introduction to Computer Science', 3, 'foundation', 13, NULL),
+('CSE216', 'Microprocessor', 3, 'foundation', 13, NULL),
 ('EEE131', 'Electrical Circuit-I', 3, 'core', 9, NULL),
 ('EEE231', 'Signals & Systems', 3, 'core', 9, NULL),
 ('EEE233', 'Energy Conversion-I', 3, 'core', 9, NULL),
@@ -171,9 +222,8 @@ CREATE TABLE `co_t` (
 --
 
 INSERT INTO `co_t` (`coID`, `coNum`, `courseID`, `ploID`, `poID`) VALUES
-(1, 1, 'CSC101', '43', '43'),
 (2, 1, 'CSC101', '44', '44'),
-(3, 1, 'CSC101', '45', '45'),
+(3, 3, 'CSC303', '45', '45'),
 (4, 2, 'CSC101', '43', '43'),
 (5, 1, 'EEE131', '22', '22'),
 (6, 2, 'EEE131', '22', '22'),
@@ -368,7 +418,8 @@ INSERT INTO `evaluation_strategy_t` (`eSID`, `assessmentTool1`, `markDistributio
 (2, 'd', 4, 'd', 12, 'e', 'f', 5, 6, 'e', 'f', 'bleh', 60),
 (3, 'Two Class Tests', 10, '', 4, 'One report & assignment\r\n\r\n', 'One Project & Presentation', 15, 15, 'Analyze, Develop', 'Demonstrate, Use', 'Continuous\r\nAssessment', 40),
 (4, 'Midterm Examination', 25, 'Analyze, Use', 4, 'Final Term Examination', '', 35, NULL, 'Demonstrate, Model', '', 'Summative Assessment', 60),
-(5, 'a', 1, 'a', 13, 'b', 'c', 2, 3, 'b', 'c', 'i dont know', 40);
+(5, 'a', 1, 'a', 13, 'b', 'c', 2, 3, 'b', 'c', 'i dont know', 40),
+(6, '2', 20, 'sf', 14, '3r', '3dfg', 20, 30, 'sdf', 'sdf', 'Thinking capability', 100);
 
 -- --------------------------------------------------------
 
@@ -414,7 +465,8 @@ INSERT INTO `exam_t` (`examID`, `examName`, `sectionID`) VALUES
 (13, 'quiz-1', 3),
 (14, 'quiz-1', 7),
 (15, 'quiz-1', 19),
-(16, 'quiz-2', 19);
+(16, 'quiz-2', 19),
+(17, 'CSC303FinalSpring2023', 5);
 
 -- --------------------------------------------------------
 
@@ -472,7 +524,10 @@ INSERT INTO `lesson_plan_strategy_t` (`lPSID`, `week`, `topic`, `learningStrateg
 (7, 2, 'Internet of Things', 'Review presentations Classroom discussion', 'Quiz 2', 'CLO2', 11),
 (8, 3, 'Artificial Intelligence (AI)', 'Review presentations Classroom discussion', 'Quiz 3', 'CLO3', 11),
 (9, 1, 'Introduction', 'Discussion', 'Mid Exam Progressive Project', '2', 12),
-(10, 1, 'Introduction', 'Lecture (3h)', 'Mid Exam Progressive Project', 'CLO1', 13);
+(10, 1, 'Introduction', 'Lecture (3h)', 'Mid Exam Progressive Project', 'CLO1', 13),
+(11, 1, 'Introduciton', 'Lecture(1.5 hour)', 'quiz 1', 'CLO1', 14),
+(12, 2, 'History', 'Lectue(1.5 hour)', 'quiz 2', 'CLO2', 14),
+(13, 3, 'Intel 8086', 'Lecture(1.5 hour)', 'quiz 3', 'CLO3', 14);
 
 -- --------------------------------------------------------
 
@@ -747,7 +802,28 @@ INSERT INTO `question_t` (`questionID`, `questionDetails`, `markPerQuestion`, `q
 (91, 'define the fundamentals of this course', 10, 3, 1, '15', 'EEE131', 3),
 (92, 'what do you expect from this course', 10, 4, 0, '15', 'EEE131', 4),
 (93, 'what is the name of this course', 10, 1, 1, '16', 'EEE131', 2),
-(94, 'define the meaning of this course', 10, 2, 1, '16', 'EEE131', 3);
+(94, 'define the meaning of this course', 10, 2, 1, '16', 'EEE131', 3),
+(154, '', 100, 1, NULL, '17', 'CSC303', 1),
+(155, '', 100, 1, NULL, '17', 'CSC303', 2),
+(156, '', 100, 1, NULL, '17', 'CSC303', 3),
+(160, '', 100, 1, NULL, '1', 'CSC101', 1),
+(161, '', 100, 1, NULL, '1', 'CSC101', 2),
+(162, '', 100, 1, NULL, '1', 'CSC101', 3),
+(172, '', 100, 1, NULL, '5', 'ENG101', 1),
+(173, '', 100, 1, NULL, '5', 'ENG101', 2),
+(174, '', 100, 1, NULL, '5', 'ENG101', 3),
+(175, '', 100, 1, NULL, '5', 'ENG101', 1),
+(176, '', 100, 1, NULL, '5', 'ENG101', 2),
+(177, '', 100, 1, NULL, '5', 'ENG101', 3),
+(178, '', 100, 1, NULL, '5', 'ENG101', 1),
+(179, '', 100, 1, NULL, '5', 'ENG101', 2),
+(180, '', 100, 1, NULL, '5', 'ENG101', 3),
+(181, '', 100, 1, NULL, '5', 'ENG101', 1),
+(182, '', 100, 1, NULL, '5', 'ENG101', 2),
+(183, '', 100, 1, NULL, '5', 'ENG101', 3),
+(184, '', 100, 1, NULL, '5', 'ENG101', 1),
+(185, '', 100, 1, NULL, '5', 'ENG101', 2),
+(186, '', 100, 1, NULL, '5', 'ENG101', 3);
 
 -- --------------------------------------------------------
 
@@ -758,39 +834,51 @@ INSERT INTO `question_t` (`questionID`, `questionDetails`, `markPerQuestion`, `q
 CREATE TABLE `registration_t` (
   `registrationID` int(11) NOT NULL,
   `sectionID` int(11) NOT NULL,
-  `studentID` int(11) NOT NULL
+  `studentID` int(11) NOT NULL,
+  `courseID` varchar(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `registration_t`
 --
 
-INSERT INTO `registration_t` (`registrationID`, `sectionID`, `studentID`) VALUES
-(1, 1, 1531176),
-(2, 2, 1611001),
-(3, 3, 1711409),
-(4, 4, 1720718),
-(5, 5, 1722021),
-(6, 6, 1810471),
-(7, 7, 1811135),
-(8, 8, 1821772),
-(9, 9, 1822089),
-(10, 10, 1910876),
-(11, 11, 2020076),
-(12, 11, 1711411),
-(13, 7, 1722021),
-(14, 7, 1910876),
-(15, 12, 1531176),
-(16, 12, 1611001),
-(17, 13, 1711409),
-(18, 13, 1720718),
-(19, 10, 1931160),
-(20, 3, 1910876),
-(21, 14, 1930095),
-(22, 15, 1921498),
-(23, 16, 2020076),
-(24, 1, 1910876),
-(25, 19, 2020076);
+INSERT INTO `registration_t` (`registrationID`, `sectionID`, `studentID`, `courseID`) VALUES
+(1, 1, 1531176, 'CSC101'),
+(2, 2, 1611001, 'CSC101'),
+(3, 1, 1711409, 'CSC303'),
+(4, 1, 1720718, 'CSC101'),
+(5, 5, 1722021, NULL),
+(6, 6, 1810471, NULL),
+(7, 7, 1811135, NULL),
+(8, 8, 1821772, NULL),
+(9, 9, 1822089, NULL),
+(10, 10, 1910876, NULL),
+(11, 11, 2020076, NULL),
+(12, 11, 1711411, NULL),
+(13, 7, 1722021, NULL),
+(14, 7, 1910876, NULL),
+(15, 12, 1531176, NULL),
+(16, 12, 1611001, NULL),
+(17, 13, 1711409, NULL),
+(18, 13, 1720718, NULL),
+(19, 10, 1931160, NULL),
+(20, 3, 1910876, NULL),
+(21, 14, 1930095, NULL),
+(22, 15, 1921498, NULL),
+(95, 208, 2022078, 'CSC303'),
+(115, 218, 2022078, NULL),
+(116, 218, 1621313, NULL),
+(117, 218, 1930091, NULL),
+(118, 218, 1910931, NULL),
+(121, 221, 2022079, NULL),
+(122, 221, 2022080, NULL),
+(123, 221, 2022080, NULL),
+(124, 221, 2022080, NULL),
+(127, 221, 2022082, NULL),
+(128, 221, 2022082, NULL),
+(129, 221, 2022082, NULL),
+(130, 221, 2022083, NULL),
+(131, 221, 2022084, NULL);
 
 -- --------------------------------------------------------
 
@@ -835,7 +923,7 @@ CREATE TABLE `section_t` (
 
 INSERT INTO `section_t` (`sectionID`, `sectionNum`, `semester`, `courseID`, `facultyID`, `year`) VALUES
 (1, 1, 'summer', 'EEE131', 4275, 2021),
-(2, 2, 'summer', 'EEE131', 4275, 2020),
+(2, 2, 'spring', 'CSC101', 2259, 2021),
 (3, 2, 'autumn', 'EEE131', 4275, 2021),
 (4, 1, 'summer', 'EEE231', 4361, 2020),
 (5, 1, 'autumn', 'ENG101', 4351, 2021),
@@ -850,9 +938,14 @@ INSERT INTO `section_t` (`sectionID`, `sectionNum`, `semester`, `courseID`, `fac
 (14, 1, 'summer', 'CSC101', 4449, 2021),
 (15, 1, 'autumn', 'CSC101', 4449, 2021),
 (16, 1, 'summer', 'MIS430', 3542, 2021),
-(17, 1, 'spring', 'ENG101', 2259, 2021),
 (18, 2, 'summer', 'ENG101', 2483, 2021),
-(19, 1, 'autumn', 'EEE131', 4275, 2021);
+(19, 1, 'autumn', 'EEE131', 4275, 2021),
+(221, 5, 'Spring', 'CSC101', 0, 2023),
+(227, 5, 'Spring', 'ENG101', 0, 2023),
+(228, 5, 'Spring', 'ENG101', 0, 2023),
+(229, 5, 'Spring', 'ENG101', 0, 2023),
+(230, 5, 'Spring', 'ENG101', 0, 2023),
+(231, 5, 'Spring', 'ENG101', 0, 2023);
 
 -- --------------------------------------------------------
 
@@ -874,7 +967,7 @@ CREATE TABLE `student_course_performance_t` (
 INSERT INTO `student_course_performance_t` (`scpID`, `registrationID`, `totalMarksObtained`, `gradePoint`) VALUES
 (1, 2, 80, 3.3),
 (2, 3, 78, 3),
-(3, 4, 87, 3.7),
+(3, 4, 87, 4),
 (4, 5, 89, 3.7),
 (5, 6, 86, 3.7),
 (6, 7, 70, 2.7),
@@ -882,7 +975,7 @@ INSERT INTO `student_course_performance_t` (`scpID`, `registrationID`, `totalMar
 (8, 9, 75, 3),
 (9, 10, 93, 4),
 (10, 11, 93, 4),
-(11, 1, 66, 2.3),
+(11, 1, 66, 3.3),
 (12, 12, 66, 2.3),
 (13, 13, 60, 2),
 (14, 14, 58, 1.7),
@@ -892,7 +985,18 @@ INSERT INTO `student_course_performance_t` (`scpID`, `registrationID`, `totalMar
 (18, 18, 57, 1.7),
 (19, 21, 69, 2.3),
 (20, 23, 88, 3.7),
-(21, 22, 80, 3.3);
+(21, 22, 80, 3.3),
+(94, 115, 75, 3),
+(95, 116, 85, 3.7),
+(96, 117, 80, 3.3),
+(97, 118, 90, 4),
+(99, 121, 75, 3),
+(100, 124, 75, 3),
+(103, 127, 70, 2.7),
+(104, 128, 70, 2.7),
+(105, 129, 70, 2.7),
+(106, 130, 80, 3.3),
+(107, 131, 60, 2);
 
 -- --------------------------------------------------------
 
@@ -974,6 +1078,12 @@ CREATE TABLE `vc_t` (
 --
 ALTER TABLE `answer_t`
   ADD PRIMARY KEY (`answerID`);
+
+--
+-- Indexes for table `back_log_t`
+--
+ALTER TABLE `back_log_t`
+  ADD PRIMARY KEY (`bLID`);
 
 --
 -- Indexes for table `clo_matrix_t`
@@ -1127,19 +1237,25 @@ ALTER TABLE `vc_t`
 -- AUTO_INCREMENT for table `answer_t`
 --
 ALTER TABLE `answer_t`
-  MODIFY `answerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `answerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+
+--
+-- AUTO_INCREMENT for table `back_log_t`
+--
+ALTER TABLE `back_log_t`
+  MODIFY `bLID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `clo_matrix_t`
 --
 ALTER TABLE `clo_matrix_t`
-  MODIFY `clo_MatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `clo_MatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `course_outline_t`
 --
 ALTER TABLE `course_outline_t`
-  MODIFY `courseOutlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `courseOutlineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `co_t`
@@ -1151,7 +1267,7 @@ ALTER TABLE `co_t`
 -- AUTO_INCREMENT for table `evaluation_strategy_t`
 --
 ALTER TABLE `evaluation_strategy_t`
-  MODIFY `eSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `eSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `evaluation_t`
@@ -1163,13 +1279,13 @@ ALTER TABLE `evaluation_t`
 -- AUTO_INCREMENT for table `exam_t`
 --
 ALTER TABLE `exam_t`
-  MODIFY `examID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `examID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `lesson_plan_strategy_t`
 --
 ALTER TABLE `lesson_plan_strategy_t`
-  MODIFY `lPSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `lPSID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `plo_t`
@@ -1199,25 +1315,25 @@ ALTER TABLE `program_t`
 -- AUTO_INCREMENT for table `question_t`
 --
 ALTER TABLE `question_t`
-  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
 -- AUTO_INCREMENT for table `registration_t`
 --
 ALTER TABLE `registration_t`
-  MODIFY `registrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `registrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `section_t`
 --
 ALTER TABLE `section_t`
-  MODIFY `sectionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `sectionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
 
 --
 -- AUTO_INCREMENT for table `student_course_performance_t`
 --
 ALTER TABLE `student_course_performance_t`
-  MODIFY `scpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `scpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

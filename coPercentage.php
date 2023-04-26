@@ -86,11 +86,13 @@ if (isset($_SESSION['user_type'])) {
 
         <div class="menu1">
             <ul>
-                <li><a href="addExam.php">Add Exam </a> </li>
-                <li><a href="viewVxam.php">View Exam </a> </li>
-                <li><a href="viewStudentAnswerScript.php"> Evaluate Exam Script</a> </li>
-                <li><a href="createCourseOutlinePage1.php"> Create Course Outline </a> </li>
-                <li><a href="Uploadgrade.php"> Upload Grade </a> </li>
+            <li><a href="addExam.php">Add Exam </a> </li>
+				  <li><a href="viewExam.php">View Exam </a> </li>
+				  <li><a href="viewStudentAnswerScript.php"> Evaluate Exam Script</a> </li>
+				  <li><a href="createCourseOutlinePage1.php"> Create Course Outline </a> </li>
+				  <li><a href="viewCourseOutline.php"> View Course Outline </a> </li>
+                  <li><a href="Uploadgrade.php"> Upload Grade </a> </li>
+                  <li><a href="manualUploadGrade.php"> Manual Upload Grade </a> </li>
                 
             </ul>
            </div>
