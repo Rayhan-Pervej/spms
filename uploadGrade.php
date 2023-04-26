@@ -333,7 +333,7 @@ _-->
 
 					if (!in_array($enrolled_course, $questions)) {
 						// Fetch examId from exam_t table
-						$exam_name = $enrolled_course . "FinalSummer2021";
+						$exam_name = $enrolled_course . "Final";
 						$query = "SELECT examID FROM exam_t WHERE examName='$exam_name'";
 						$result = mysqli_query($con, $query);
 						$row = mysqli_fetch_assoc($result);
@@ -430,7 +430,7 @@ _-->
 
 
 
-					$query="INSERT INTO backLog_t (studentID, year, semester, courseID, sectionNum, gradePoint, employeeID)
+					$query="INSERT INTO back_log_t (studentID, year, semester, courseID, sectionNum, gradePoint, employeeID)
 					VALUES ('$student_id', '$edu_year', '$edu_semester', '$enrolled_course', '$enrolled_section', '$grade_point', '$ID')";
 					mysqli_query($con, $query);
 

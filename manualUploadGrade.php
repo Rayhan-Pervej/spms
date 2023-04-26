@@ -402,7 +402,7 @@ input[type="button"]:hover {
 
 
 
-					$query="INSERT INTO backLog_t (studentID, year, semester, courseID, sectionNum, gradePoint, employeeID)
+					$query="INSERT INTO back_log_t (studentID, year, semester, courseID, sectionNum, gradePoint, employeeID)
 					VALUES ('$student_id', '$edu_year', '$edu_semester', '$enrolled_course', '$enrolled_section', '$grade_point', '$ID')";
 					mysqli_query($con, $query);
 
