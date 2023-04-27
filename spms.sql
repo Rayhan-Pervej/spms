@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2023 at 11:26 PM
+-- Generation Time: Apr 27, 2023 at 11:29 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -68,20 +68,7 @@ INSERT INTO `answer_t` (`answerID`, `answerDetails`, `answerNum`, `markObtained`
 (148, '', 1, 75, 115, 0, 17),
 (149, '', 1, 85, 116, 0, 17),
 (150, '', 1, 85, 116, 0, 17),
-(151, '', 1, 85, 116, 0, 17),
-(152, '', 1, 80, 117, 0, 17),
-(153, '', 1, 80, 117, 0, 17),
-(154, '', 1, 80, 117, 0, 17),
-(155, '', 1, 90, 118, 0, 17),
-(156, '', 1, 90, 118, 0, 17),
-(157, '', 1, 90, 118, 0, 17),
-(159, '', 1, 75, 121, 0, 1),
-(160, '', 1, 75, 124, 0, 5),
-(163, '', 1, 70, 127, 0, 5),
-(164, '', 1, 70, 128, 0, 5),
-(165, '', 1, 70, 129, 0, 5),
-(166, '', 1, 80, 130, 0, 5),
-(167, '', 1, 60, 131, 0, 5);
+(151, '', 1, 85, 116, 0, 17);
 
 -- --------------------------------------------------------
 
@@ -107,8 +94,7 @@ CREATE TABLE `back_log_t` (
 
 INSERT INTO `back_log_t` (`bLID`, `studentID`, `year`, `semester`, `courseID`, `sectionNum`, `gradePoint`, `employeeID`, `timeStamp`) VALUES
 (3, 2022082, 2023, 'Spring', 'ENG101', 5, 2.7, 2259, '2023-04-26 05:18:38'),
-(4, 2022083, 2023, 'Spring', 'ENG101', 5, 3.3, 2259, '2023-04-26 17:01:03'),
-(5, 2022084, 2023, 'Spring', 'ENG101', 5, 2, 2259, '2023-04-26 17:16:28');
+(4, 2022083, 2023, 'Spring', 'ENG101', 5, 3.3, 2259, '2023-04-26 17:01:03');
 
 -- --------------------------------------------------------
 
@@ -451,11 +437,11 @@ CREATE TABLE `exam_t` (
 --
 
 INSERT INTO `exam_t` (`examID`, `examName`, `sectionID`) VALUES
-(1, 'CSC101FinalSpring2021', 10),
-(2, 'EEE131FinalSpring2021', 1),
+(1, 'CSC101Final', 10),
+(2, 'EEE131Final', 1),
 (3, 'EEE231FinalSummer2020', 4),
 (4, 'EEE233FinalAutumn2021', 5),
-(5, 'ENG101FinalSummer2021', 7),
+(5, 'ENG101Final', 7),
 (6, 'MKT101FinalSpring2020', 11),
 (7, 'EEE131FinalAutumn2021', 3),
 (9, 'CSC101FinalSummer2021', 14),
@@ -466,7 +452,7 @@ INSERT INTO `exam_t` (`examID`, `examName`, `sectionID`) VALUES
 (14, 'quiz-1', 7),
 (15, 'quiz-1', 19),
 (16, 'quiz-2', 19),
-(17, 'CSC303FinalSpring2023', 5);
+(17, 'CSC303Final', 5);
 
 -- --------------------------------------------------------
 
@@ -802,28 +788,7 @@ INSERT INTO `question_t` (`questionID`, `questionDetails`, `markPerQuestion`, `q
 (91, 'define the fundamentals of this course', 10, 3, 1, '15', 'EEE131', 3),
 (92, 'what do you expect from this course', 10, 4, 0, '15', 'EEE131', 4),
 (93, 'what is the name of this course', 10, 1, 1, '16', 'EEE131', 2),
-(94, 'define the meaning of this course', 10, 2, 1, '16', 'EEE131', 3),
-(154, '', 100, 1, NULL, '17', 'CSC303', 1),
-(155, '', 100, 1, NULL, '17', 'CSC303', 2),
-(156, '', 100, 1, NULL, '17', 'CSC303', 3),
-(160, '', 100, 1, NULL, '1', 'CSC101', 1),
-(161, '', 100, 1, NULL, '1', 'CSC101', 2),
-(162, '', 100, 1, NULL, '1', 'CSC101', 3),
-(172, '', 100, 1, NULL, '5', 'ENG101', 1),
-(173, '', 100, 1, NULL, '5', 'ENG101', 2),
-(174, '', 100, 1, NULL, '5', 'ENG101', 3),
-(175, '', 100, 1, NULL, '5', 'ENG101', 1),
-(176, '', 100, 1, NULL, '5', 'ENG101', 2),
-(177, '', 100, 1, NULL, '5', 'ENG101', 3),
-(178, '', 100, 1, NULL, '5', 'ENG101', 1),
-(179, '', 100, 1, NULL, '5', 'ENG101', 2),
-(180, '', 100, 1, NULL, '5', 'ENG101', 3),
-(181, '', 100, 1, NULL, '5', 'ENG101', 1),
-(182, '', 100, 1, NULL, '5', 'ENG101', 2),
-(183, '', 100, 1, NULL, '5', 'ENG101', 3),
-(184, '', 100, 1, NULL, '5', 'ENG101', 1),
-(185, '', 100, 1, NULL, '5', 'ENG101', 2),
-(186, '', 100, 1, NULL, '5', 'ENG101', 3);
+(94, 'define the meaning of this course', 10, 2, 1, '16', 'EEE131', 3);
 
 -- --------------------------------------------------------
 
@@ -865,20 +830,7 @@ INSERT INTO `registration_t` (`registrationID`, `sectionID`, `studentID`, `cours
 (20, 3, 1910876, NULL),
 (21, 14, 1930095, NULL),
 (22, 15, 1921498, NULL),
-(95, 208, 2022078, 'CSC303'),
-(115, 218, 2022078, NULL),
-(116, 218, 1621313, NULL),
-(117, 218, 1930091, NULL),
-(118, 218, 1910931, NULL),
-(121, 221, 2022079, NULL),
-(122, 221, 2022080, NULL),
-(123, 221, 2022080, NULL),
-(124, 221, 2022080, NULL),
-(127, 221, 2022082, NULL),
-(128, 221, 2022082, NULL),
-(129, 221, 2022082, NULL),
-(130, 221, 2022083, NULL),
-(131, 221, 2022084, NULL);
+(95, 208, 2022078, 'CSC303');
 
 -- --------------------------------------------------------
 
@@ -939,13 +891,7 @@ INSERT INTO `section_t` (`sectionID`, `sectionNum`, `semester`, `courseID`, `fac
 (15, 1, 'autumn', 'CSC101', 4449, 2021),
 (16, 1, 'summer', 'MIS430', 3542, 2021),
 (18, 2, 'summer', 'ENG101', 2483, 2021),
-(19, 1, 'autumn', 'EEE131', 4275, 2021),
-(221, 5, 'Spring', 'CSC101', 0, 2023),
-(227, 5, 'Spring', 'ENG101', 0, 2023),
-(228, 5, 'Spring', 'ENG101', 0, 2023),
-(229, 5, 'Spring', 'ENG101', 0, 2023),
-(230, 5, 'Spring', 'ENG101', 0, 2023),
-(231, 5, 'Spring', 'ENG101', 0, 2023);
+(19, 1, 'autumn', 'EEE131', 4275, 2021);
 
 -- --------------------------------------------------------
 
@@ -994,9 +940,7 @@ INSERT INTO `student_course_performance_t` (`scpID`, `registrationID`, `totalMar
 (100, 124, 75, 3),
 (103, 127, 70, 2.7),
 (104, 128, 70, 2.7),
-(105, 129, 70, 2.7),
-(106, 130, 80, 3.3),
-(107, 131, 60, 2);
+(105, 129, 70, 2.7);
 
 -- --------------------------------------------------------
 
@@ -1237,13 +1181,13 @@ ALTER TABLE `vc_t`
 -- AUTO_INCREMENT for table `answer_t`
 --
 ALTER TABLE `answer_t`
-  MODIFY `answerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+  MODIFY `answerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT for table `back_log_t`
 --
 ALTER TABLE `back_log_t`
-  MODIFY `bLID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `bLID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `clo_matrix_t`
@@ -1315,25 +1259,25 @@ ALTER TABLE `program_t`
 -- AUTO_INCREMENT for table `question_t`
 --
 ALTER TABLE `question_t`
-  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `registration_t`
 --
 ALTER TABLE `registration_t`
-  MODIFY `registrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `registrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT for table `section_t`
 --
 ALTER TABLE `section_t`
-  MODIFY `sectionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=232;
+  MODIFY `sectionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
 
 --
 -- AUTO_INCREMENT for table `student_course_performance_t`
 --
 ALTER TABLE `student_course_performance_t`
-  MODIFY `scpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `scpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

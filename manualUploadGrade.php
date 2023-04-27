@@ -78,26 +78,7 @@ input[type="button"]:hover {
   background: linear-gradient(90deg, #34166e, #40179f);
 }
 
-input[type="submit"] {
-  background: #40179f;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-weight: bold;
-  margin-left: 5px;
-  height: 36px;
-  width: 100px;
-}
 
-
-input[type="submit"]:hover {
-  background: linear-gradient(90deg, #34166e, #40179f);
-}
 
 
 
@@ -228,6 +209,11 @@ input[type="submit"]:hover {
   <input  type="button" value="Submit" onclick="createForm()">
 </form>
 
+
+
+
+
+
 <script>
   function createForm() {
     let numStudents = document.getElementById('num_students').value;
@@ -266,16 +252,19 @@ input[type="submit"]:hover {
 
 <?php
 
+
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit2'])) {
-      $num_students = 3;
+		//$num_students = intval($_POST['num_students']);
+      //$num_students = 3;
       $students = array();
       $sections = array();
         $registrations = array();
         $questions = array();
         $grade_marks = array();
+
     // loop through the number of students entered and store the data in an array
-    for ($i = 1; $i <= $num_students; $i++) {
+    for ($i = 1; $i <= 2; $i++) {
       $student_id = $_POST['student_id_' . $i];
       $edu_semester = $_POST['edu_semester_' . $i];
       $edu_year = $_POST['edu_year_' . $i];
@@ -327,7 +316,7 @@ input[type="submit"]:hover {
 
 					if (!in_array($enrolled_course, $questions)) {
 						// Fetch examId from exam_t table
-						$exam_name = $enrolled_course . "FinalSummer2021";
+						$exam_name = $enrolled_course . "Final";
 						$query = "SELECT examID FROM exam_t WHERE examName='$exam_name'";
 						$result = mysqli_query($con, $query);
 						$row = mysqli_fetch_assoc($result);
