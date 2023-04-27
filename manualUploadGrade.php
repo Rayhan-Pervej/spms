@@ -73,7 +73,29 @@ input[type="button"] {
   width: 100px;
 }
 
+
 input[type="button"]:hover {
+  background: linear-gradient(90deg, #34166e, #40179f);
+}
+
+input[type="submit"] {
+  background: #40179f;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+  height: 36px;
+  width: 100px;
+}
+
+
+input[type="submit"]:hover {
   background: linear-gradient(90deg, #34166e, #40179f);
 }
 
@@ -226,7 +248,7 @@ input[type="button"]:hover {
         '<input type="text" id="enrolled_course_' + i + '" name="enrolled_course_' + i + '">' +
         '<label for="enrolled_section_' + i + '">Enrolled Section:</label>' +
         '<input type="text" id="enrolled_section_' + i + '" name="enrolled_section_' + i + '">' +
-        '<label for="grade_point_' + i + '">Grade Point:</label>' +
+        '<label for="grade_point_' + i + '">Grade:</label>' +
         '<input type="text" id="grade_point_' + i + '" name="grade_point_' + i + '"><br>';
 
       form.appendChild(studentDiv);
