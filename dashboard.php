@@ -138,7 +138,7 @@ if (isset($_SESSION['user_type'])) {
 
 
 
-<?php include('D:\APPS\Xamp\htdocs\spms\test\test.php'); ?>
+<?php include('C:\xampp\htdocs\spms\test\test.php'); ?> // if this code is not running on your pc. just simply copy the test file from test folder and paste in it here.
 
 
 
